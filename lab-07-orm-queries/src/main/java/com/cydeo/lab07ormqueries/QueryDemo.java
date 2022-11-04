@@ -29,7 +29,7 @@ public class QueryDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        System.out.println("Top 5: " +balanceRepository.retrieveTop5balance());
 
     }
 }
