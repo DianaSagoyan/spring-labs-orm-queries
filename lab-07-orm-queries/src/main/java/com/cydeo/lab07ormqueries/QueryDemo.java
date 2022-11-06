@@ -31,5 +31,7 @@ public class QueryDemo implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Top 5: " +balanceRepository.retrieveTop5balance());
 
+        System.out.println("state and product: " +cartItemRepository.retrieveCartItemWithSpecificStateAndProductName("CREATED", "Tomatoes"));
+
     }
 }
