@@ -25,17 +25,18 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     boolean existsByCustomer_Email(String email);
 
     //Write a native query to get all orders by specific product name
-    @Query(nativeQuery = true, value = "select * from orders o join product p") //???
+    @Query(nativeQuery = true, value = "select * from orders o join product p where p.name = ?1") //???
     List<Order> retrieveOrdersByProductName(String name);
 
     //Write a native query to get all orders by specific categoryId
-    
+    @Query(nativeQuery = true, value = "select * from orders join category c where c.id = ?1") //??
+    List<Order> retrieveOrdersByCategoryId(Long id);
 
     //Write a derived query to get all orders by totalPrice and paidPrice are equals
-
+    List<Order> findByTotalPriceEqualsPaidPrice(); //??
 
     //Write a derived query to get all orders by totalPrice and paidPrice are not equals and discount is not null
-
+    List<Order> findByTotalPriceNotEqualPaidPriceAndDiscountNotNull();  //??
 
 
 }
