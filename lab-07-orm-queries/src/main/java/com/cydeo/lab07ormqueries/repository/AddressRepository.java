@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
     //Write a derived query to get all address with a specific customer
-    List<Address> findByCustomer(Customer customer);  //?
+    List<Address> findByCustomer(Customer customer);
 
     //Write a derived query to get address with a specific street
     Address findByStreet(String street);
@@ -21,7 +21,7 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
     List<Address> findTop3ByCustomer_Email(String email);
 
     //Write a derived query to get all address with a specific customer and name
-    List<Address> findByCustomerIdAndName(Long id, String name); //?
+    List<Address> findByCustomerAndName(Customer customer, String name);
 
 
     //Write a derived query to list all address where the beginning of the street contains the keyword
